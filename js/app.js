@@ -42,6 +42,7 @@ angular.module( 'engageApp', [
   function($scope, $rootScope, growl,FileUploader) {
 
     $scope.ruleConditionData = [
+      {"name":""},
       {"name":"Not Equal To"},
       {"name":"Equal To"},
       {"name":"Less Than"},
@@ -50,34 +51,25 @@ angular.module( 'engageApp', [
       {"name":"Greater Than Or Equal To"}
     ];
 
-    $scope.statementTelcoData = [
-      {"name":"Customer Number"},
-      {"name":"Customer Gender"},
+$scope.statementGInsuranceData = [
+      {"name":"Customer Id"},
+      {"name":"Customer PhNo"},
       {"name":"Customer City"},
-      {"name":"Customer Type"},
-      {"name":"Manufacturer"},
-      {"name":"Model Number"},
-      {"name":"Plan Name"},
-      {"name":"Plan MinRental"},
-      {"name":"Plan PulseRate(Sec)"},
-      {"name":"Roaming Enbaled"},
-      {"name":"Call Duration"},
-      {"name":"Number of Calls"},
-      {"name":"Total Minutes"},
-      {"name":"Total Roaming Minutes"},
-      {"name":"Total Long Distance Minutes"},
-      {"name":"Total Call Cost"},
-      {"name":"Total Roaming Cost"},
-      {"name":"Total Long Distance Cost"},
-      {"name":"Feature type"},
-      {"name":"Data Pack"},
-      {"name":"Data Usage"},
-      {"name":"Data Tariff"},
-      {"name":"Free Data Usage"},
-      {"name":"Prepaid Packs"},
-      {"name":"Date Activated"},
-      {"name":"Date LastUsed"}
+      {"name":"Customer Email"},
+      {"name":"Customer Insurance Type"},
+      {"name":"No of Adults (>21 Years)"},
+      {"name":"No of Kids (3m to 20 Years)"},
+      {"name":"Customer Age"},
+      {"name":"Customer PolicyCover Amount"},
+      {"name":"Customer Loyal"},
+      {"name":"Customer Gender"},
+      {"name":"Customer LastUsage"},
+      {"name":"Customer Income"},
+      {"name":"Vehicle Manufacturer"},
+      {"name":"Registration Date"}
     ];
+
+
 
     $scope.skip = function(whom,index){
       $scope.adTabs[index + 1].active = true;
@@ -149,31 +141,32 @@ angular.module( 'engageApp', [
 
   $scope.groups = [
     {
-      title: 'Prepaid Balance < 5 Rupees',
+      title: 'High Net Health Insurance Policy Holders',
       open: true,
-      content: 'Reach all users whose balance is less than 5 Rupees and push ads about recharge'
+      content: 'These customers can buy all the other expensive policies like international travel, family plan'
     },
     {
-      title: '2GUser_DateLast Used < Aug 1',
+      title: 'Last Online 3 months Back',
       open: false,
-      content: 'Since customer is not using 2G for sometime now, give some data pack offer'
+      content: 'Was active on website earlier, not anymore'
     },
     {
-      title: 'PostPaid_ISD Plan ',
+      title: 'Requested quote on car insurance but never got back',
       open: false,
-      content: 'User is heavy ISD user,  give 3G plans and cheaper ISD plans'
+      content: 'In-market to buy car insurance probably because existing service is not good '
     },
     {
-      title: 'Total Roaming Cost > 5000 Rupees',
+      title: 'Parent whose child will soon go for higher studies',
       open: false,
-      content: 'Provide cheaper options for some frequently travelling countries '
+      content: 'Knowing the salary/policy of parent, reach them for Overseas Study Insurance'
     },
     {
-      title: 'Device User and Not Mobile User ',
+      title: 'Loyal Customers',
       open: false,
-      content: 'User has bought your device but mobile number of other player. Reach him to switch to your brand with better package of device and mobile'
+      content: 'Using service for long time and loyal since then'
     }
   ];
+
 
   $scope.displayTable = [
     {
@@ -226,7 +219,7 @@ angular.module( 'engageApp', [
       value: '140560'
     },
     {
-      key: 'Career',
+      key: 'Carrier',
       value: '1105'
     },
     {
@@ -234,6 +227,44 @@ angular.module( 'engageApp', [
       value: '2113'
     }    
   ];
+
+  $scope.facebookTable = [
+    {
+      icon:'images/icon_6.png',
+      key: 'Impressions',
+      value: '5999391'
+    },
+    {
+      key: 'Clicks',
+      value: '17309'
+    },
+    {
+      key: 'CTR',
+      value: '0.29'
+    },
+    {
+      key: 'Ad Spent',
+      value: '139472'
+    }    
+  ];
+
+  $scope.twitterTable = [
+    {
+      icon:'images/icon_6.png',
+      key: 'Impressions',
+      value: '5999391'
+    },
+    {
+      key: 'Engagement',
+      value: '17309'
+    },
+    {
+      key: 'Engagement Rate',
+      value: '0.29'
+    }   
+  ];
+
+
 
   $scope.telcoTables=[
     {
@@ -259,6 +290,22 @@ angular.module( 'engageApp', [
       headingClass: "headingSms",
       heading:"SMS",
       active: false
+    },
+    {
+      values: $scope.facebookTable,
+      className: "tableFacebook",
+      id: "areachartFb",
+      headingClass: "headingFacebook",
+      heading:"Facebook",
+      active: false
+    },
+    {
+      values: $scope.twitterTable,
+      className: "tableTwitter",
+      id: "areachartTw",
+      headingClass: "headingTwitter",
+      heading:"Twitter",
+      active: false
     }
   ];
 
@@ -269,16 +316,36 @@ angular.module( 'engageApp', [
         $scope.telcoTables[0].active = true;
         $scope.telcoTables[1].active = false;
         $scope.telcoTables[2].active = false;
+        $scope.telcoTables[3].active = false;
+        $scope.telcoTables[4].active = false;
       }
       else if(index === 1){
         $scope.telcoTables[1].active = true;
         $scope.telcoTables[0].active = false;
         $scope.telcoTables[2].active = false;
+        $scope.telcoTables[3].active = false;
+        $scope.telcoTables[4].active = false;
       }
       else if(index === 2){
         $scope.telcoTables[2].active = true;
         $scope.telcoTables[0].active = false;
         $scope.telcoTables[1].active = false;
+        $scope.telcoTables[3].active = false;
+        $scope.telcoTables[4].active = false;
+      }
+      else if(index === 3){
+        $scope.telcoTables[2].active = false;
+        $scope.telcoTables[0].active = false;
+        $scope.telcoTables[1].active = false;
+        $scope.telcoTables[3].active = true;
+        $scope.telcoTables[4].active = false;
+      }
+      else if(index === 4){
+        $scope.telcoTables[2].active = false;
+        $scope.telcoTables[0].active = false;
+        $scope.telcoTables[1].active = false;
+        $scope.telcoTables[3].active = false;
+        $scope.telcoTables[4].active = true;
       }
     }
   }
@@ -346,60 +413,93 @@ angular.module( 'engageApp', [
     $scope.options = [{ name: "AND", id: 1 }, { name: "OR", id: 2 }];
     $scope.selectedOption = $scope.options[0];
   
+    
+    $scope.selectedRules = {
+      statementOptions : $scope.statementGInsuranceData[0],
+      conditionOptions : $scope.ruleConditionData[0]
+    };
+
+    $scope.ruleData = [$scope.selectedRules];
+
+    
 
     $scope.addRule = function(value){
+      /*var tempData = {
+        statementOptions : $scope.statementGInsuranceData[0],
+        conditionOptions : $scope.ruleConditionData[0]
+      };*/
+      $scope.ruleData.push(angular.copy($scope.selectedRules));
       id++;
       var rule = { 'id': id, 'operator': 'and'};
       $scope.rules.splice(value+1,0,rule);
     };
 
     $scope.tickRule = function(value){
-      $scope.decreaseMetrics();
+      var isFirstTick = true;
+      for(var i=1; i<$scope.metrics.length; i++){
+          if($scope.metrics[i]['value'] != 0){
+            isFirstTick = false;
+            break;
+          }
+      }
+      if(isFirstTick){
+        for(var i=1; i<$scope.metrics.length; i++){
+          $scope.metrics[i]['value'] = $scope.metricValues[i];
+          $scope.metrics[i]['formattedValue'] = numberWithCommas($scope.metrics[i]['value']);
+        } 
+      }
+      else{
+        $scope.decreaseMetrics();
+      }
     };
 
     $scope.removeRule = function(value){
       $scope.rules[value]['removed'] = true;
       $scope.rules.splice(value,1);
+      $scope.ruleData.splice(value,1);
       $scope.increaseMetrics();
     };
 
     $scope.changeCondition = function(option,index){
     }
 
-    $scope.defaultMetrics = [5588935,4709350,3753420,2010167,1075890,5388453];
+    $scope.defaultMetrics = [1000000,0,0,0,0,0];
 
     $scope.metrics = [
       {
         'name':"Total Users",
-        'value':"5588935",
+        'value':"1000000",
         'type':'success'
       },
       {
-        'name':"Desktop & Mobile",
-        'value':"4709350",
+        'name':"Desktop",
+        'value':"0",
         'type':'primary'
       },
       {
         'name':"Mobile",
-        'value':"3753420",
+        'value':"0",
         'type':'primary'
       },
       {
-        'name':"Desktop",
-        'value':"2010167",
+        'name':"Desktop & Mobile",
+        'value':"0",
         'type':'primary'
       },
       {
         'name':"Facebook",
-        'value':"1075890",
+        'value':"0",
         'type':'primary'
       },
       {
         'name':"Total Reach",
-        'value':"5388453",
+        'value':"0",
         'type':'warning'
       }
     ];
+
+
+    $scope.metricValues = [1000000,830419,517760,301007,211457,950442];
 
 
 
@@ -426,8 +526,9 @@ angular.module( 'engageApp', [
     }
 
     $scope.increaseMetrics = function(){
+      var random = getRandomArbitrary(4,9);
       for(var i=1; i<$scope.metrics.length; i++){
-        $scope.metrics[i]['value'] = increaseValue($scope.metrics[i]['value'],5);
+        $scope.metrics[i]['value'] = increaseValue($scope.metrics[i]['value'],random);
         $scope.metrics[i]['formattedValue'] = numberWithCommas($scope.metrics[i]['value']);
       } 
     }
@@ -441,7 +542,7 @@ angular.module( 'engageApp', [
     }
 
     function increaseValue(value,by){
-      return Math.ceil(value + (value * (by/100)));
+      return Math.ceil((value * (by/100)) + parseInt(value));
     }
 
     function getRandomArbitrary(min, max) {
@@ -457,26 +558,26 @@ angular.module( 'engageApp', [
       $scope.metrics[i]['formattedValue'] = numberWithCommas($scope.metrics[i]['value']);
     }
 
-    $scope.savedSegments = [
+     $scope.savedSegments = [
       {
-        name: "Segment 1",
+        name: "Eligible for Family Policy Plan",
         desc: "",
-        reach: "5388453"
+        reach: "4398112"
       },
       {
-        name: "Segment 2",
+        name: "Used Life Insurance but not General Insurance Service",
         desc: "",
-        reach: "2178021"
+        reach: "1198124"
       },
       {
-        name: "Segment 3",
+        name: "Called Customer Care about details",
         desc: "",
-        reach: "3300913"
+        reach: "3320957"
       },
       {
-        name: "Segment 4",
+        name: "Aged 24-27, will buy insurance on mobile",
         desc: "",
-        reach: "1338100"
+        reach: "2299895"
       }
     ];
 
@@ -508,6 +609,20 @@ angular.module( 'engageApp', [
         };
         $scope.savedSegments.unshift(segmentToSave);
         growl.addSuccessMessage("Your segment "+$scope.segmentValue.segmentName.toUpperCase()+" has been saved.");
+        $scope.segmentValue.segmentName = '';
+        $scope.segmentValue.segmentDesc = '';
+        $scope.rules.splice(0,$scope.rules.length);
+        for(var i=0; i<$scope.metrics.length; i++){
+          $scope.metrics[i]['value'] = $scope.defaultMetrics[i];
+          $scope.metrics[i]['formattedValue'] = numberWithCommas($scope.metrics[i]['value']);
+        }  
+        $scope.selectedRules = {
+          statementOptions : $scope.statementGInsuranceData[0],
+          conditionOptions : $scope.ruleConditionData[0]
+        };
+        $scope.ruleData.splice(0,$scope.ruleData.length);
+        $scope.ruleData = [$scope.selectedRules];
+        $scope.tabs[2].active = true;
       } 
     };
 
@@ -518,6 +633,7 @@ angular.module( 'engageApp', [
         content: $scope.savedSegments[0].desc
       };
       $scope.groups.unshift(tempGroup);
+      $scope.savedSegments.splice(0,1);
       growl.addSuccessMessage("Your segment has been Engaged.");
       flushRootscopeData();
     };
@@ -559,6 +675,14 @@ angular.module( 'engageApp', [
         $scope.metrics[i]['value'] = $scope.defaultMetrics[i];
         $scope.metrics[i]['formattedValue'] = numberWithCommas($scope.metrics[i]['value']);
       }  
+      $scope.selectedRules = {
+        statementOptions : $scope.statementGInsuranceData[0],
+        conditionOptions : $scope.ruleConditionData[0]
+      };
+      $scope.ruleData.splice(0,$scope.ruleData.length);
+      $scope.ruleData = [$scope.selectedRules];
+      $scope.segmentValue.segmentName = '';
+      $scope.segmentValue.segmentDesc = '';
       growl.addWarnMessage("Default values have been restored");
     };
 
