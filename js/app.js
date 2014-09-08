@@ -51,7 +51,7 @@ angular.module( 'engageApp', [
       {"name":"Greater Than Or Equal To"}
     ];
 
-$scope.statementGInsuranceData = [
+$scope.statementBankingData = [
       {"name":""},
       {"name":"Customer Id"},
       {"name":"Customer PhNo"},
@@ -102,9 +102,16 @@ $scope.statementGInsuranceData = [
 
     $scope.tabs = [
       {
+        'name': "Data On-Boarding",
+        route: "./views/tab6.html",
+        active: true,
+        icon:"images/icon_9.png",
+        disabled: false
+      },
+      {
         'name': "Summary Dashboard",
         route: "./views/tab1.html",
-        active: true,
+        active: false,
         icon:"images/icon_1.png",
         disabled: false
       },
@@ -138,10 +145,114 @@ $scope.statementGInsuranceData = [
       }
     ];
 
+  $scope.avgTimes = [
+    {
+      value:3.72,
+      className:'envelope'
+    },
+    {
+      value:4.17,
+      className:'phone'
+    },
+    {
+      value:2.13,
+      className:'database'
+    },
+    {
+      value:8.05,
+      className:'hand'
+    }
+  ];
+
+  $scope.datedActivities = [
+    {
+      date: "Today",
+      data: [
+        {
+          title: 'Time taken to download Email Database is 20s',
+          timestamp: 'September 05, 03:07:42',
+          icon: 'fa-envelope',
+          iconcolor: 'envelope' 
+        },
+        {
+          title: 'Completed download of CRM Database',
+          timestamp: 'September 05, 03:57:02',
+          icon: 'fa-database',
+          iconcolor: 'database'
+        },
+        {
+          title: 'Updated ClickStream Data into Engage360',
+          timestamp: 'September 05, 03:44:16',
+          icon: 'fa-hand-o-up',
+          iconcolor: 'hand'
+        },
+        {
+          title: 'Completed download of ClickStream',
+          timestamp: 'September 05, 03:43:22',
+          icon: 'fa-hand-o-up',
+          iconcolor: 'hand'
+        },
+        {
+          title: 'Time taken to download CRM Database is 172s',
+          timestamp: 'September 05, 03:44:35',
+          icon: 'fa-database',
+          iconcolor: 'database'
+        },
+        {
+          title: 'Time taken to download ClickStream is 172s',
+          timestamp: 'September 05, 03:43:18',
+          icon: 'fa-hand-o-up',
+          iconcolor: 'hand'
+        },  
+        {
+          title: 'Completed download of CallCenter Data',
+          timestamp: 'September 05,  03:42:39',
+          icon: 'fa-phone',
+          iconcolor: 'phone'
+        },
+        {
+          title: 'Time taken to download CallCenter Data is 172s',
+          timestamp: 'September 05, 03:41:20',
+          icon: 'fa-phone',
+          iconcolor: 'phone'
+        },
+        {
+          title: 'Updated Email Database into Engage360',
+          timestamp: 'September 04, 03:41:19',
+          icon: 'fa-envelope',
+          iconcolor: 'envelope'
+        }
+      ]
+    },
+    {
+      date: "September 04",
+      data: [
+         {
+            title: 'Completed download of Email Database',
+            timestamp: 'September 04,  03:40:52',
+            icon: 'fa-envelope',
+            iconcolor: 'envelope'
+          },
+          {
+            title: 'Updated CallCenter Data into Engage360',
+            timestamp: 'September 05, 03:42:55',
+            icon: 'fa-phone',
+            iconcolor: 'phone'
+          },
+          {
+            title: 'Time taken to download Email Database is 172s',
+            timestamp: 'September 04,  03:40:05',
+            icon: 'fa-envelope',
+            iconcolor: 'envelope'
+          }
+      ]
+    }
+  ];
+
   $scope.oneAtATime = true;
 
   $scope.groups = [
-    {
+     {
       title: 'High Net Health Insurance Policy Holders',
       open: true,
       content: 'These customers can buy all the other expensive policies like international travel, family plan'
@@ -359,7 +470,7 @@ $scope.statementGInsuranceData = [
   $scope.engageSegment = function(segment,desc){
     $scope.engagedSegment.name = segment;
     $scope.engagedSegment.desc = desc;
-    $scope.tabs[3].active = true;
+    $scope.tabs[4].active = true;
   }
 
   $scope.status = {
@@ -416,7 +527,7 @@ $scope.statementGInsuranceData = [
   
     
     $scope.selectedRules = {
-      statementOptions : $scope.statementGInsuranceData[0],
+      statementOptions : $scope.statementBankingData[0],
       conditionOptions : $scope.ruleConditionData[0]
     };
 
@@ -426,7 +537,7 @@ $scope.statementGInsuranceData = [
 
     $scope.addRule = function(value){
       /*var tempData = {
-        statementOptions : $scope.statementGInsuranceData[0],
+        statementOptions : $scope.statementBankingData[0],
         conditionOptions : $scope.ruleConditionData[0]
       };*/
       $scope.ruleData.push(angular.copy($scope.selectedRules));
@@ -560,7 +671,7 @@ $scope.statementGInsuranceData = [
     }
 
      $scope.savedSegments = [
-      {
+     {
         name: "Eligible for Family Policy Plan",
         desc: "",
         reach: "4398112"
@@ -618,12 +729,12 @@ $scope.statementGInsuranceData = [
           $scope.metrics[i]['formattedValue'] = numberWithCommas($scope.metrics[i]['value']);
         }  
         $scope.selectedRules = {
-          statementOptions : $scope.statementGInsuranceData[0],
+          statementOptions : $scope.statementBankingData[0],
           conditionOptions : $scope.ruleConditionData[0]
         };
         $scope.ruleData.splice(0,$scope.ruleData.length);
         $scope.ruleData = [$scope.selectedRules];
-        $scope.tabs[2].active = true;
+        $scope.tabs[3].active = true;
       } 
     };
 
@@ -677,7 +788,7 @@ $scope.statementGInsuranceData = [
         $scope.metrics[i]['formattedValue'] = numberWithCommas($scope.metrics[i]['value']);
       }  
       $scope.selectedRules = {
-        statementOptions : $scope.statementGInsuranceData[0],
+        statementOptions : $scope.statementBankingData[0],
         conditionOptions : $scope.ruleConditionData[0]
       };
       $scope.ruleData.splice(0,$scope.ruleData.length);

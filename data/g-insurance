@@ -3,67 +3,14 @@ $scope.statementGInsuranceData = [
       {"name":"Customer PhNo"},
       {"name":"Customer City"},
       {"name":"Customer Email"},
-      {"name":"Customer Insurance Type"},
-      {"name":"No of Adults (>21 Years)"},
-      {"name":"No of Kids (3m to 20 Years)"},
+      {"name":"Customer AccType"},
       {"name":"Customer Age"},
-      {"name":"Customer PolicyCover Amount"},
-      {"name":"Customer Loyal"},
+      {"name":"Customer Limit"},
+      {"name":"Customer Type"},
       {"name":"Customer Gender"},
+      {"name":"Customer Balance"},
       {"name":"Customer LastUsage"},
-      {"name":"Customer Income"},
-      {"name":"Vehicle Manufacturer"},
-      {"name":"Registration Date"}
-    ];
-
-$scope.groups = [
-    {
-      title: 'High Net Health Insurance Policy Holders',
-      open: true,
-      content: 'These customers can buy all the other expensive policies like international travel, family plan'
-    },
-    {
-      title: 'Last Online 3 months Back',
-      open: false,
-      content: 'Was active on website earlier, not anymore'
-    },
-    {
-      title: 'Requested quote on car insurance but never got back',
-      open: false,
-      content: 'In-market to buy car insurance probably because existing service is not good '
-    },
-    {
-      title: 'Parent whose child will soon go for higher studies',
-      open: false,
-      content: 'Knowing the salary/policy of parent, reach them for Overseas Study Insurance'
-    },
-    {
-      title: 'Loyal Customers',
-      open: false,
-      content: 'Using service for long time and loyal since then'
-    }
-  ];
-
-
-  $scope.savedSegments = [
-      {
-        name: "Eligible for Family Policy Plan",
-        desc: "",
-        reach: "4398112"
-      },
-      {
-        name: "Used Life Insurance but not General Insurance Service",
-        desc: "",
-        reach: "1198124"
-      },
-      {
-        name: "Called Customer Care about details",
-        desc: "",
-        reach: "3320957"
-      },
-      {
-        name: "Aged 24-27, will buy insurance on mobile",
-        desc: "",
-        reach: "2299895"
-      }
+      {"name":"Customer Loyal"},
+      {"name":"Customer OnlineLogin"},
+      {"name":"Customer Points"}
     ];

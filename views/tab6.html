@@ -1,0 +1,109 @@
+<div class="row onboardTab">
+  <div class="seg_rule_heading">
+    <h3>Data On-Boarding</h3>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-3 activity_feed">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Activity Feed</h3>
+        </div>
+        <div class="panel-body activity-panel">
+
+          <div class="dated_activity" ng-repeat="datedActivity in datedActivities">
+            <div class="activity_seg"><span>{{datedActivity.date}}</span></div>
+            <div class="activity row" ng-repeat="activity in datedActivity.data">
+              <div class="col-sm-2">
+                <div class="activity_icon {{activity.iconcolor}}">
+                  <i class="fa {{activity.icon}}"></i>
+                </div>
+              </div>
+              <div class="col-sm-10">
+                <div class="row">
+                  <div class="col-sm-12 activity_title">{{activity.title}}</div>
+                </div>
+                 <div class="row">
+                  <div class="col-sm-12 activity_timestamp">{{activity.timestamp}}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-9 custom-onboard-col">
+      <div class="row active_legends">
+        <div class="col-sm-3">
+          <span class="legend_block bg_email"></span> 
+          <span class="legend_text">EMAIL</span> 
+        </div>
+        <div class="col-sm-3">
+          <span class="legend_block bg_crm"></span> 
+          <span class="legend_text">CRM</span> 
+        </div>
+        <div class="col-sm-3">
+          <span class="legend_block bg_click"></span> 
+          <span class="legend_text">CLICKSTREAM</span> 
+        </div>
+        <div class="col-sm-3">
+          <span class="legend_block bg_call"></span> 
+          <span class="legend_text">CALLCENTER</span> 
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">Average Download Time</h3>
+            </div>
+            <div class="panel-body times">
+              <div class="" ng-repeat="avgTime in avgTimes">
+                <!-- <span class="count_text">{{metric.name}}&nbsp;({{metric.formattedValue}})</span> -->
+                <progressbar class="progress-bar-striped active {{avgTime.className}}" value="avgTime.value" max="10">
+                </progressbar>
+              <span class="avgTimeText label label-primary {{avgTime.className}}">{{avgTime.value + 's'}}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">New Data Added</h3>
+            </div>
+            <div class="panel-body">
+              <div class="info-active">
+                <div class="infoDiv">
+                  <span class="infoValue">1,230,702</span>
+                  <div id="donutHolder">
+                    <div id="donut"></div>
+                    <span id="donutData"></span>   
+                  </div>
+                </div>
+                <div class="perValue">
+                  <span ><i class="fa fa-caret-up"></i>10.34%</span>
+                </div>
+                <span class="previousValue">Previous: 1,103,446</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">Day-Wise Data</h3>
+            </div>
+            <div class="panel-body">
+               <div id="multiLineChart"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

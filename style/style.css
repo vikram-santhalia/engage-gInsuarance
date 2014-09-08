@@ -823,6 +823,7 @@
   ::-webkit-scrollbar {
     width: 6px;
     height: 6px;
+    background-color: #ededed;
   }
 
   ::-webkit-scrollbar-thumb {
@@ -1270,3 +1271,229 @@
   left: 70.4%;
 }
 
+
+
+.activity_icon{
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+  color: #ffffff;
+  font-size: 10px;
+  line-height: 16px;
+  text-align: center;
+  border: 2px solid #ffffff;
+}
+
+.activity_icon.envelope{
+  background-color: #2574a9;
+  box-shadow: 0 0 1px 2px #2574a9;
+}
+.activity_icon.phone{
+  background-color: #239d58;
+  box-shadow: 0 0 1px 2px #239d58;
+}
+.activity_icon.database{
+  background-color: #70757b;
+  box-shadow: 0 0 1px 2px #70757b;
+}
+.activity_icon.hand{
+  background-color: #b9493e;
+  box-shadow: 0 0 1px 2px #b9493e;
+}
+
+.activity-panel{
+  height:420px;
+  overflow-x:hidden;
+  overflow-y:scroll;
+  padding-bottom: 0;
+}
+
+.activity{
+  margin-bottom:12px;
+  padding-top: 10px;
+  border-bottom: 1px dotted #d5d5d5;
+}
+
+.activity_title{
+  font-weight: 500;
+  font-size: 12px;
+  text-shadow: none;
+  margin-left: -18px;
+  padding-right: 0px;
+}
+
+.activity_timestamp{
+  margin-top: 5px;
+  margin-left: -16px;
+  color: #cbd3d7;
+  font-weight: 700;
+}
+
+.activity_feed{
+  margin-left: 40px;
+}
+
+.custom-onboard-col{
+  width:71%;
+}
+
+#multiLineChart{
+  width: 870px;
+  height:169px;
+}
+
+.times .progress{
+  margin:0;
+  height:15px;
+  border-radius: 20px;
+  border:none;
+  width:80%;
+  float:left;
+  margin-top:10px;
+}
+
+.avgTimeText{
+  width:50px;
+  font-size:12px;
+  display:inline-block;
+  margin-top: 10px;
+  margin-left: 15px;
+  font-weight: bold;
+}
+
+.times .envelope .progress-bar{
+  background-color: #2574a9;
+  border-radius: 20px;
+  height:15px;
+  margin:0;
+}
+.times .phone .progress-bar{
+  background-color: #239d58;
+  border-radius: 20px;
+  height:15px;
+  margin:0;
+}
+.times .database .progress-bar{
+  background-color: #70757b;
+  border-radius: 20px;
+  height:15px;
+  margin:0;
+}
+.times .hand .progress-bar{
+  background-color: #b9493e;
+  border-radius: 20px;
+  height:15px;
+  margin:0;
+}
+
+.info-active{
+  position: relative;
+}
+
+.infoDiv{
+  font-size:34px;
+}
+
+.perValue{
+  color: #2ed069;
+  height: 60%;
+  text-align: center;
+  border: 1px dotted #ededed;
+  width: 12%;
+  left: 73%;
+  background-color: #ffffff;
+  top: 157%;
+  font-weight: 700;
+  position: absolute;
+  padding-top: 1.5%;
+  z-index: 100;
+  -webkit-box-shadow: 0 8px 6px -6px rgba(0,0,0,0.4);
+  -moz-box-shadow: 0 8px 6px -6px rgba(0,0,0,0.4);
+  box-shadow: 0 8px 6px -6px rgba(0,0,0,0.4);
+}
+
+.perValue span{
+}
+
+.previousValue{
+  font-size: 20px;
+  margin-top: 32px;
+  display: block;
+  color: #A2A9AC;
+  font-weight: 700;
+  float: left;
+}
+
+#donutHolder {
+    width: 105px;
+    height: 105px;
+    text-align: center;
+    line-height: 350px;
+    margin-bottom: 3px;
+    font-size: 30px;
+    color: #f00;
+    float: right;
+    position: relative;
+    margin-right: 30px
+}
+
+#donut {
+    width: 100%;
+    height: 100%;
+}
+
+#donutData {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+}
+
+.activity_seg{
+  background-color: #ededed;
+  margin-left: -15px;
+  margin-right: -15px;
+  padding: 5px;
+  margin-top: -15px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #1e3d4f;
+}
+
+.active_legends{
+  margin:0px;
+  margin-bottom: 10px;
+  border: 1px solid #dddddd;
+  border-radius: 3px;
+  padding-left: 60px;
+}
+
+.onboardTab .panel-heading{
+  padding:7px;
+}
+
+
+.legend_block{
+  height: 10px;
+  width: 20px;
+  vertical-align: middle;
+  display: inline-block;
+}
+
+.legend_text{
+  display: inline-block;
+}
+
+.bg_email{
+  background-color: #2574a9; 
+}
+.bg_crm{
+  background-color: #70757b; 
+}
+.bg_click{
+  background-color: #b9493e; 
+}
+.bg_call{
+  background-color: #239d58; 
+}
